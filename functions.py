@@ -86,3 +86,37 @@ def remove_directory():
             shutil.rmtree(f)
     except Exception as e:
         print(f"An error occurred while removing the directory: {e}")
+
+
+
+import os
+import shutil
+
+import os
+import shutil
+
+
+def clear_desktop():
+    try:
+        dir = "/Users/Balog David/Desktop"
+        os.chdir(dir)  # Change the current working directory to the desktop
+        # Delete every file or image or anything on the desktop
+        for file in os.listdir(dir):
+            if file == '.DS_Store':
+                continue
+            destination = ""
+            if is_image(file):
+                destination = "/Users/Balog David/Pictures"
+            elif is_video(file):
+                destination = "/Users/Balog David/Videos"
+            elif is_audio(file):
+                destination = "/Users/Balog David/Music"
+            else:
+                destination = "/Users/Balog David/Documents"
+
+            dest_path = os.path.join(destination, file)
+            if os.path.exists(dest_path):
+                os.remove(dest_path)
+            shutil.move(file, destination)
+    except Exception as e:
+        print(f"An error occurred while clearing the desktop: {e}")
