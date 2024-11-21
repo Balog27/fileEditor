@@ -1,6 +1,6 @@
 import os
 import shutil
-from functions import sort, move_file,remove_directory, copy_file, copy_directory
+from functions import sort, move_file,remove_directory, copy_file, copy_directory,clear_desktop
 
 def change_directory():
     dir = "/Users/Balog David/Desktop/da"
@@ -83,6 +83,7 @@ def run():
             print(file)
         print("1. Change the current directory")
         print("2. Navigate to another directory")
+        print("3. Clear the desktop")
         print("0. Exit")
         option = input("Enter the option: ")
         if option == '0':
@@ -91,6 +92,8 @@ def run():
             change_directory()
         elif option == '2':
             navigate_directory()
+        elif option == '3':
+            clear_desktop()
         else:
             print("Invalid option")
             continue
